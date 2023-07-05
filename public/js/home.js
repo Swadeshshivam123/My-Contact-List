@@ -1,0 +1,1 @@
+console.log('Static home js file loaded...');

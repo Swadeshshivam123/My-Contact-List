@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <script
+      src="https://kit.fontawesome.com/0d4ea2bed4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="shortcut icon" type="image/png" href="/media/favicon.png">
+  </head>
+  <body>
+    <div id="container">
+      <div id="heading">
+        <h1 id="page-heading">
+          <i class="fa-solid fa-rectangle-list"></i></i>&nbsp;&nbsp;&nbsp;</i>My Contact List
+        </h1>
+      </div>
+
+      <div id="contact-list">
+        <% for(let i of contact_list) { %>
+        <div id="contact-details">
+          <span id="contact-name"><p id="name-para"><%= i.name %></p></span>
+          <span id="contact-phone">
+            <span><p id="phone-para"><%= i.phone %></p></span>
+            <span class="del-icon">
+              <a href="/delete-contact/?id=<%= i.id %>">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+            </span>
+          </span>
+        </div>
+        <% } %>
+      </div>
+      <div id="contact-form">
+        <form action="/create-contact" method="post">
+          <div id="form-details">
+            <span>
+              <input
+                id="form-name"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+              />
+            </span>
+
+            <span>
+              <input
+                id="form-number"
+                type="number"
+                name="phone"
+                placeholder="Phone"
+                required
+              />
+            </span>
+
+            <Span>
+              <button id="btn" type="submit">Add Contact</button>
+            </Span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/home.js"></script>
+  </body>
+</html>
